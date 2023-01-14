@@ -35,7 +35,7 @@ const Categories = () => {
             CateogoriesList.map((data, index) => {
               return (
 
-                <div className="col-lg-2 text-center">
+                <div className="col-lg-2 col-6 text-center">
                   <div className="categori-card mt-2">
                     <img onClick={(e)=>handleDetailing(e,data.id)} className='categor-img' src={data.image} alt="" />
                     <p> {data.name}</p>
