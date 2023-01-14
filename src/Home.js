@@ -1,10 +1,16 @@
 import React from 'react'
-import Head from './Components/Header/Head'
+import Banner from './Components/Banner/Banner'
+import Card from './Components/Cards/Card/Card'
+import Categories from './Components/Cards/Categories/Categories'
+
 
 const Home = () => {
   return (
     <div>
-        <Head/>
+       
+        <Banner/>
+        <Categories/>
+        <Card/>
         
     </div>
   )
