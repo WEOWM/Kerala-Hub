@@ -47,7 +47,7 @@ const Head = () => {
                         </div>
                         <div class="offcanvas-body">
                             <li>
-                                <NavLink>Home</NavLink>
+                                <NavLink to={"/"}>Home</NavLink>
                             </li>
                             <li>
                                 <NavLink>Clothes</NavLink>
