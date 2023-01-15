@@ -23,12 +23,12 @@ const Card = () => {
                         RandomDtails.map((data, index) => {
                             return (
 
-                                <div class="col-lg-3 card ca-rd mt-3  "  >
-                                    <img className='mt-3 ' src={data.images} class="card-img-top" alt="..." height="200px"  />
+                                <div class="col-lg-3 card ca-rd mt-4  text-center"  >
+                                    <img className='mt-4  ' src={data.images}  alt="..." height="200px"  />
                                     <div class="card-body">
-                                        <h5 class="card-title">{data.title}</h5>
+                                        <h5 class="card-title">{data.title.substring(0,20)}</h5>
                                         <p> ${data.price}</p>
-                                        <a href="#" class="btn btn-outline-dark">Buy Now</a>
+                                        <a href="#" class="btn btn-outline-dark ">Buy Now</a>
                                     </div>
                                 </div>
                             )
