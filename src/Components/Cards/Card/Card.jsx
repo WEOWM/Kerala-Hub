@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { FeacthDetailsRandom } from '../../../Store/Slice/Shop/RondamDetailSlice'
+import "./Card.css"
 
 const Card = () => {
     const dispatch = useDispatch()
@@ -16,20 +17,25 @@ const Card = () => {
 
     return (
         <div>
-            {
-                RandomDtails.map((data, index) => {
-                    return (
+            <div className="container">
+                <div className="row">
+                    {
+                        RandomDtails.map((data, index) => {
+                            return (
 
-                        <div class="col-lg-6" >
-                            <img src={data.images} class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    )
-                })
-            }
+                                <div class="col-lg-3 card ca-rd mt-3  "  >
+                                    <img className='mt-3 ' src={data.images} class="card-img-top" alt="..." height="200px"  />
+                                    <div class="card-body">
+                                        <h5 class="card-title">{data.title}</h5>
+                                        <p> ${data.price}</p>
+                                        <a href="#" class="btn btn-outline-dark">Buy Now</a>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
         </div>
     )
 }
