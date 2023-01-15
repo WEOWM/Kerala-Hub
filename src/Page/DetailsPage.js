@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { feachShopDetails } from '../Store/Slice/Shop/CategoriesDeatailsSlice'
 
 const DetailsPage = () => {
-    const {id} = useParams()
+    const { id } = useParams()
 
     console.log("p-id:", id);
 
@@ -12,7 +12,7 @@ const DetailsPage = () => {
 
     useEffect(() => {
 
-        dispach(feachShopDetails({DetailsID:id}))
+        dispach(feachShopDetails({ DetailsID: id }))
 
     }, [])
 
@@ -21,17 +21,18 @@ const DetailsPage = () => {
     console.log("data::::", ShopDetails);
     return (
         <div>
-            <div className="container mt-5">
+            <div className="container-fluid   ">
                 <div className="row">
                     {
                         ShopDetails.map((data) => {
                             return (
-                                <div class="col-lg-2">
-                                    <img src={data.images[0]} class="card-img-top" alt="..."/>
-                                        <div class="card-body">
-                                            <p class="card-title">{data.title}</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                        </div>
+                                <div class="col-lg-3 card ca-rd mt-4  text-center"  >
+                                    <img className='mt-4  ' src={data.images} alt="..." height="200px" />
+                                    <div class="card-body">
+                                        <h5 class="card-title">{data.title.substring(0, 20)}</h5>
+                                        <p> ${data.price}</p>
+                                        <a href="#" class="btn btn-outline-dark ">Buy Now</a>
+                                    </div>
                                 </div>
                             )
                         })

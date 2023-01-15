@@ -74,6 +74,9 @@
 .offcanvas-body a{
     text-decoration: none;
 }
+.offcanvas-end{
+    width: 50%;
+}
 
 @media screen and (max-width:992px){
     .head{
