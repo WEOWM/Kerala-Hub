@@ -19,10 +19,10 @@ const SingPage = () => {
     return (
         <div className="container-fluid">
             <div className="row mt-5 ">
-                <div className="left  col-md-6 col-12" >
+                <div className="left  col-md-6 " >
                     <img className='w-100' src={singleproduts.images} alt="" />
                 </div>
-                <div className="right col-md-6 col-12" >
+                <div className="right col-md-6 col-sm-6" >
                     <div>
                         <h2>{singleproduts.title}</h2>
                         <h4>{singleproduts.price}</h4>
