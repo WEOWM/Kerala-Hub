@@ -21,9 +21,10 @@ const actionHandle = (payload) => {
 }
 export default {
     baseURL: "https://api.escuelajs.co/api/v1/",
-    CategoreList: "categories",
+    CategoreList: "categories?offset=0&limit=6",
     CategoreDetails: "products/?categoryId={id}",
     DetailsRANDOM: "/products",
+    SingleProduts:"products/{id}",
 
     actionHandle
 }

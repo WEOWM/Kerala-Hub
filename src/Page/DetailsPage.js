@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { feachShopDetails } from '../Store/Slice/Shop/CategoriesDeatailsSlice'
 
 const DetailsPage = () => {
-    const { id } = useParams()
 
+    const handleDetails = (e,id) =>{
+        
+        navigate(`/singe/${id}`)
+
+
+    }
+    const navigate = useNavigate()
+    const { id } = useParams()
     console.log("p-id:", id);
 
     const dispach = useDispatch()
@@ -31,7 +38,7 @@ const DetailsPage = () => {
                                     <div class="card-body">
                                         <h5 class="card-title">{data.title.substring(0, 20)}</h5>
                                         <p> ${data.price}</p>
-                                        <a href="#" class="btn btn-outline-dark ">Buy Now</a>
+                                        <a href="#" class="btn btn-outline-dark "onClick={(e)=>handleDetails(e,data.id)}>Buy Now</a>
                                     </div>
                                 </div>
                             )
