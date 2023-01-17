@@ -22,11 +22,12 @@ const SingPage = () => {
                 <div className="left  col-md-6 " >
                     <img className='w-100' src={singleproduts.images} alt="" />
                 </div>
-                <div className="right col-md-6 col-sm-6" >
+                <div className="right col-md-6 col-sm-12 mt-5" style={{display: "flex",alignItems: "flex-start", flexDirection: "column",justifyContent: "center", }} >
                     <div>
                         <h2>{singleproduts.title}</h2>
                         <h4>{singleproduts.price}</h4>
                         <p>{singleproduts.description}</p>
+                        <a class="btn btn-outline-dark " >Go to Cart</a>
 
                     </div>
                 </div>

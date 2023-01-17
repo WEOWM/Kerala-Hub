@@ -5,9 +5,10 @@ import { feachShopDetails } from '../Store/Slice/Shop/CategoriesDeatailsSlice'
 
 const DetailsPage = () => {
 
-    const handleDetails = (e,id) =>{
-        
+    const handleDetails = (e, id) => {
+        e.preventDefault();
         navigate(`/singe/${id}`)
+        console.log("detailsId:", id);
 
 
     }
@@ -37,8 +38,8 @@ const DetailsPage = () => {
                                     <img className='mt-4  ' src={data.images} alt="..." height="200px" />
                                     <div class="card-body">
                                         <h5 class="card-title">{data.title.substring(0, 20)}</h5>
-                                        <p> ${data.price}</p>
-                                        <a href="#" class="btn btn-outline-dark "onClick={(e)=>handleDetails(e,data.id)}>Buy Now</a>
+                                        <p> {data.price}</p>
+                                        <a class="btn btn-outline-dark " onClick={(e) => handleDetails(e, data.id)}>Buy Now</a>
                                     </div>
                                 </div>
                             )

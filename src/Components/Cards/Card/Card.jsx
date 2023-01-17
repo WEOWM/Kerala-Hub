@@ -11,7 +11,7 @@ const Card = () => {
     const singproduts = (e, id) => {
         e.preventDefault();
         navigate(`/singe/${id}`)
-        console.log(id);
+        console.log("card:id",id);
 
 
     }

@@ -6,6 +6,7 @@ import DetailsPage from './Page/DetailsPage';
 
 import Head from './Components/Header/Head'
  import SingPage from './Page/SingPage';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path='/details/:id' element={<DetailsPage />} />
         <Route exact path='/singe/:id' element={<SingPage/>} />
       </Routes>
+      <Footer/>
     </>
   );
 }

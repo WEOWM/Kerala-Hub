@@ -23,7 +23,7 @@ export default {
     baseURL: "https://api.escuelajs.co/api/v1/",
     CategoreList: "categories?offset=0&limit=6",
     CategoreDetails: "products/?categoryId={id}",
-    DetailsRANDOM: "/products",
+    DetailsRANDOM: "/products?offset=0&limit=24",
     SingleProduts:"products/{id}",
 
     actionHandle
