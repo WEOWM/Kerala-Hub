@@ -38,7 +38,7 @@ const Card = () => {
                                     <div class="card-body">
                                         <h5 class="card-title">{data.title.substring(0, 20)}</h5>
                                         <p> ${data.price}</p>
-                                        <a href="#" class="btn btn-outline-dark " onClick={(e) => singproduts(e, data.id)}>Buy a Now</a>
+                                        <a  class="btn btn-outline-dark " onClick={(e) => singproduts(e, data.id)}>Buy a Now</a>
                                     </div>
                                 </div>
                             )
