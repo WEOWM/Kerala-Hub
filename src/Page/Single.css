@@ -1,16 +1,5 @@
-/* .left {
-   
-   width: 50%;
-    align-items:center;
-    
-    
-    
-} */
-/* .right {
-   
-   width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-} */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
+.commone-class{
+    font-family: 'Kanit', sans-serif;
+}

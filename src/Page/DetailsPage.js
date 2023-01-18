@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { feachShopDetails } from '../Store/Slice/Shop/CategoriesDeatailsSlice'
+import './Single.css'
 
 const DetailsPage = () => {
 
@@ -34,7 +35,7 @@ const DetailsPage = () => {
                     {
                         ShopDetails.map((data) => {
                             return (
-                                <div class="col-lg-3 card ca-rd mt-4  text-center"  >
+                                <div class="col-lg-3 card ca-rd mt-4  text-center commone-class"  >
                                     <img className='mt-4  ' src={data.images} alt="..." height="200px" />
                                     <div class="card-body">
                                         <h5 class="card-title">{data.title.substring(0, 20)}</h5>

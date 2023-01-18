@@ -38,7 +38,7 @@ const Categories = () => {
                 <div className="col-lg-2 col-6 text-center">
                   <div className="categori-card mt-2">
                     <img onClick={(e)=>handleDetailing(e,data.id)} className='categor-img' src={data.image} alt="" />
-                    <p> {data.name}</p>
+                    <h5> {data.name}</h5>
                   </div>
                 </div>
 

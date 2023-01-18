@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Crete+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
 
 .categor-img{
     width: 10rem;
     height: 10rem;
     border-radius: 8px ;
+    font-family: 'Kanit', sans-serif;
 }
 .text-add{
     width: 100%;
     height: 10rem;
-    background-color: cadetblue;
+    background-color: #a99985;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: 'Crete Round', serif;
+    font-family: 'Kanit', sans-serif;
+   
     
 }

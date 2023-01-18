@@ -7,8 +7,7 @@ const Head = () => {
         <>
             <div className="head">
                 <div className="logo ms-4">
-                    <span >Kerala</span>
-                    <span >Hub</span>
+                <h2>Kerala Hub</h2>
                 </div>
                 <div className="nav-bar me-4">
                     <li>
@@ -34,8 +33,7 @@ const Head = () => {
             </div>
             <div className="mobile-Head">
                 <div className="mobile-logo ms-3">
-                    <span>Kerela</span>
-                    <span>Hub</span>
+                  <h2>Kerala Hub</h2>
                 </div>
                 <div className="mobile-nav me-3">
                     <i class="fa-solid fa-bars fa-2x" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
