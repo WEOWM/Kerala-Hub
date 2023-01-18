@@ -52,7 +52,7 @@
     font-size: 30px;
     display: flex;
     align-items: center;
-    font-family: 'Crete Round', serif;
+    font-family: 'Righteous', cursive;
 }
 .mobile-nav{
     width: 50%;
@@ -76,6 +76,8 @@
 }
 .offcanvas-body a{
     text-decoration: none;
+    color: black;
+    font-family: 'Kanit', sans-serif;
 }
 .offcanvas-end{
     width: 50%;
