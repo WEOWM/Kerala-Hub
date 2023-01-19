@@ -3,11 +3,12 @@ import { NavLink } from 'react-router-dom'
 import "./Head.css"
 
 const Head = () => {
+
     return (
         <>
             <div className="head">
                 <div className="logo ms-4">
-                <h2>Kerala Hub</h2>
+                    <h2>Kerala Hub</h2>
                 </div>
                 <div className="nav-bar me-4">
                     <li>
@@ -25,47 +26,27 @@ const Head = () => {
                     <li>
                         <NavLink>Shoes</NavLink>
                     </li>
-                    <li>
-                        <NavLink>Cart</NavLink>
-                    </li>
+                    <NavLink to="/cart">
+
+                        <i class="fa-solid fa-cart-shopping"  ></i>
+                        <span className='cr' > 0</span>
+                    </NavLink>
+
 
                 </div>
-            </div>
-            <div className="mobile-Head">
-                <div className="mobile-logo ms-3">
-                  <h2>Kerala Hub</h2>
+            </div><div className="mobile-screen">
+                <div className="logo">
+                    <h2>Kerala Hub</h2>
                 </div>
-                <div className="mobile-nav me-3">
-                    <i class="fa-solid fa-bars fa-2x" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></i>
+                <div className="mob-nav">
+                    <NavLink to={"/"}><i class="fa-solid fa-house"></i></NavLink>
+                    <i class="fa-solid fa-shirt"></i>
+                    <i class="fa-solid fa-shoe-prints"></i>
+                    <i class="fa-regular fa-clock"></i>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+            </div>
 
-                    <div class="offcanvas offcanvas-end" tabindex="{-1}" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                        <div class="offcanvas-header">
-                            <h5 id="offcanvasRightLabel"></h5>
-                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <li>
-                                <NavLink to={"/"}>Home</NavLink>
-                            </li>
-                            <li>
-                                <NavLink>Clothes</NavLink>
-                            </li>
-                            <li>
-                                <NavLink>Electronics</NavLink>
-                            </li>
-                            <li>
-                                <NavLink>Furniture</NavLink>
-                            </li>
-                            <li>
-                                <NavLink>Shoes</NavLink>
-                            </li>
-                            <li>
-                                <NavLink>Other</NavLink>
-                            </li>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 
 

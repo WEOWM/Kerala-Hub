@@ -1,8 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import Api from "../../Api";
 
-export const FecthSingleProducts = createAsyncThunk(
-    "Single-Products",
+export const FetchAddToCart = createAsyncThunk(
+    "cart-Products",
     async ({ payload, SingleProdutsID }, { rejectWithValue }) => {
 
         try {
@@ -28,20 +28,20 @@ export const FecthSingleProducts = createAsyncThunk(
 
     }
 )
-const singleSlice = createSlice({
-    name: "Single-Products",
+const CartListSlice = createSlice({
+    name: "cart-Products",
     initialState: {
-        singleproduts: {}
+        cartList: {}
 
     },
     reducers: {
 
     },
     extraReducers: (builder) => {
-        builder.addCase(FecthSingleProducts.fulfilled, (state, {payload}) => {
-            state.singleproduts = payload;
-            console.log("gjgh:::",payload);
+        builder.addCase(FetchAddToCart.fulfilled,(state, {payload}) => {
+            state.cartList = payload;
+            console.log("gjgh:::",state.cartList);
         })
     }
 })
-export default singleSlice.reducer
+export default CartListSlice.reducer

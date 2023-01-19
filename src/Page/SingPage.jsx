@@ -27,7 +27,7 @@ const SingPage = () => {
                         <h2>{singleproduts.title}</h2>
                         <h4>{singleproduts.price}</h4>
                         <p>{singleproduts.description}</p>
-                        <a class="btn btn-outline-dark " >Go to Cart</a>
+                        <a href='/cart' class="btn btn-outline-dark " >Go to Cart</a>
 
                     </div>
                 </div>
