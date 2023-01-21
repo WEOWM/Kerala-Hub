@@ -8,11 +8,12 @@ import Head from './Components/Header/Head'
 import SingPage from './Page/SingPage';
 import Footer from './Components/Footer/Footer';
 import Cartng from './Page/CartingPage/Cartng';
+import Popup from './Page/Popup/Popup';
 
 function App() {
   return (
     <>
-
+<Popup/>
       <Head />
       <Routes>
         <Route exact path='/' element={<Home />} />

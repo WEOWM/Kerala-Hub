@@ -1,16 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./CartingPage.scss"
- import {useSelector,useDispatch} from "react-redux"
-import { FetchAddToCart } from '../../Store/Slice/Products/AddtToCartSlice'
+import { useSelector, useDispatch } from "react-redux"
+import { useCart } from 'react-use-cart'
 
 const Cartng = () => {
 
-    const {cartList} = useSelector((state)=>state.CartListSlice)
+    // const { cartList } = useSelector((state) => state.CartListSlice)
 
-    useEffect(() => {  
-        localStorage.setItem()
-      }, [])
-    
+    const {
+        isEmpty,
+        totalUniqueItems,
+        items,
+        updateItemQuantity,
+        cartTotal,
+        removeItem,
+    } = useCart();
+
+    // const [total, setTotal]=useState()
+var total = []
+    {
+        items.map((data)=>{
+            return(
+                total = data
+                
+                )
+            })
+        }
+        
+        console.log("swfeewsfewef:::::::::::::::",total);
+
     return (
         <div>
             <div class="wrap">
@@ -25,35 +43,39 @@ const Cartng = () => {
                 </div>
                 <div class="cart-table">
                     <ul>
-{
-    cartList
-}
-                        <li class="item">
-                            <div class="item-main cf">
-                                <div class="item-block ib-info cf">
-                                    <img class="product-img" src="http://fakeimg.pl/150/e5e5e5/adadad/?text=IMG" />
-                                    <div class="ib-info-meta">
-                                        <span class="title">Drink Up Nalgene Water Bottle</span>
-                                        <span class="itemno">#3498765</span>
-                                    </div>
-                                </div>
-                                <div class="item-block ib-qty">
-                                    <input type="text" value="3" class="qty" />
-                                    <span class="price"><span>x</span> $25.00</span>
-                                </div>
-                                <div class="item-block ib-total-price">
-                                    <span class="tp-price">$75.00</span>
-                                    <span class="tp-remove"><i class="i-cancel-circle"></i></span>
-                                </div>
-                            </div>
-                            <div class="item-foot cf">
-                            <div class="if-message"><p>Space Reserved for item/promo related messaging</p></div> 
-                                <div class="if-left"><span class="if-status">In Stock</span></div>
-                                <div class="if-right"> <span class="blue-link">Subscription Options</span> | <span class="blue-link">Add to Wishlist</span></div>
-                            </div>
-                        </li>
-                
-                        
+                        {
+                            items.map((value) => {
+                                return (
+                                    <li class="item">
+                                        <div class="item-main cf">
+                                            <div class="item-block ib-info cf">
+                                                <img class="product-img" src={value.images} />
+                                                <div class="ib-info-meta">
+                                                    <span class="title">{value.title}</span>
+                                                    <span class="itemno">#3498765</span>
+                                                </div>
+                                            </div>
+                                            <div class="item-block ib-qty">
+                                                <input type="text" value="3" class="qty" />
+                                                <span class="price"><span>x</span> {value.price}</span>
+                                            </div>
+                                            <div class="item-block ib-total-price">
+                                                <span class="tp-price">${value.price}</span>
+                                                <span class="tp-remove"><i class="i-cancel-circle"></i></span>
+                                            </div>
+                                        </div>
+                                        <div class="item-foot cf">
+                                            <div class="if-message"><p>Space Reserved for item/promo related messaging</p></div>
+                                            <div class="if-left"><span class="if-status">In Stock</span></div>
+                                            <div class="if-right"> <span class="blue-link">Subscription Options</span> | <span class="blue-link">Add to Wishlist</span></div>
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+
+
+
                     </ul>
                 </div>
                 <div class="sub-table cf">
@@ -67,7 +89,7 @@ const Cartng = () => {
                             <li class="shipping"><span class="sb-label">Shipping</span><span class="sb-value">n/a</span></li>
                             <li class="tax"><span class="sb-label">Est. Tax | <span class="tax-edit">edit <i class="i-notch-down"></i></span></span><span class="sb-value">$5.00</span></li>
                             <li class="tax-calculate"><input type="text" value="06484" class="tax" /><span class="btn1">Calculate</span></li>
-                            <li class="grand-total"><span class="sb-label">Total</span><span class="sb-value">$120.99</span></li>
+                            <li class="grand-total"><span class="sb-label">Total</span><span class="sb-value">${cartTotal}</span></li>
                         </ul>
                     </div>
                     <div class="copy-block">
