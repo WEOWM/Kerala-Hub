@@ -4,13 +4,14 @@ import { useNavigate } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 import { FetchAddToCart } from '../../../Store/Slice/Products/AddtToCartSlice'
 import { FeacthDetailsRandom } from '../../../Store/Slice/Shop/RondamDetailSlice'
+import { FecthSingleProducts } from '../../../Store/Slice/Shop/SingleProdutsSlice'
 import "./Card.css"
 
 const Card = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { addItem } = useCart();
+
 
   
 
@@ -24,9 +25,12 @@ const Card = () => {
 
     }
 
-    const AddToCart =(products,id)=>{
-        dispatch(FetchAddToCart({SingleProdutsID : id}))
-        addItem(products)
+
+
+
+    const BuyNow =(id)=>{
+        dispatch(FecthSingleProducts({SingleProdutsID : id}))
+  
        }
 
 
@@ -35,10 +39,10 @@ const Card = () => {
 
     }, [])
 
-    const { singleproduts } = useSelector((state) => state.singleSlice)
+
 
     const { RandomDtails } = useSelector((state) => state.RandomDetailsSlice)
-    console.log("eeasd:",singleproduts );
+
 
     return (
         <div>
@@ -53,7 +57,7 @@ const Card = () => {
                                     <div class="card-body">
                                         <h5 class="card-title">{data.title.substring(0, 20)}</h5>
                                         <p> ${data.price}</p>
-                                        <a class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => AddToCart(data,data.id)}>Add To Cart</a>
+                                        <a class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => BuyNow(data.id)}>Add To Cart</a>
                                     </div>
                                 </div>
                             )

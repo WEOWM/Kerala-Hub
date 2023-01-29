@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './Store/Index';
 import { CartProvider } from 'react-use-cart';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -17,6 +18,7 @@ root.render(
 
         <Provider store={store}>
           <App />
+          <ToastContainer/>
         </Provider>
       </CartProvider>
     </BrowserRouter>

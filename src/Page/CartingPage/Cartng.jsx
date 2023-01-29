@@ -1,113 +1,152 @@
-import React, { useEffect, useState } from 'react'
-import "./CartingPage.scss"
-import { useSelector, useDispatch } from "react-redux"
-import { useCart } from 'react-use-cart'
+import React, { useEffect, useState } from "react";
+import "./CartingPage.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useCart } from "react-use-cart";
 
 const Cartng = () => {
+  // const { cartList } = useSelector((state) => state.CartListSlice)
 
-    // const { cartList } = useSelector((state) => state.CartListSlice)
+  const {
+    isEmpty,
+    totalUniqueItems,
+    items,
+    updateItemQuantity,
+    cartTotal,
+    removeItem,
+  } = useCart();
 
-    const {
-        isEmpty,
-        totalUniqueItems,
-        items,
-        updateItemQuantity,
-        cartTotal,
-        removeItem,
-    } = useCart();
+  // const [total, setTotal]=useState()
+  var total = [];
+  {
+    items.map((data) => {
+      return (total = data);
+    });
+  }
 
-    // const [total, setTotal]=useState()
-var total = []
-    {
-        items.map((data)=>{
-            return(
-                total = data
-                
-                )
-            })
-        }
-        
-        console.log("swfeewsfewef:::::::::::::::",total);
+  console.log("swfeewsfewef:::::::::::::::", total);
 
-    return (
-        <div>
-            <div class="wrap">
-
-                <header class="cart-header cf">
-                    <strong>Items in Your Cart</strong>
-                    <span class="btn1">Checkout</span>
-                </header>
-                <div class="bonus-products">
-                    <strong>Bonus Products Block <span class="bp-toggle">(hide this block)</span></strong>
-
-                </div>
-                <div class="cart-table">
-                    <ul>
-                        {
-                            items.map((value) => {
-                                return (
-                                    <li class="item">
-                                        <div class="item-main cf">
-                                            <div class="item-block ib-info cf">
-                                                <img class="product-img" src={value.images} />
-                                                <div class="ib-info-meta">
-                                                    <span class="title">{value.title}</span>
-                                                    <span class="itemno">#3498765</span>
-                                                </div>
-                                            </div>
-                                            <div class="item-block ib-qty">
-                                                <input type="text" value="3" class="qty" />
-                                                <span class="price"><span>x</span> {value.price}</span>
-                                            </div>
-                                            <div class="item-block ib-total-price">
-                                                <span class="tp-price">${value.price}</span>
-                                                <span class="tp-remove"><i class="i-cancel-circle"></i></span>
-                                            </div>
-                                        </div>
-                                        <div class="item-foot cf">
-                                            <div class="if-message"><p>Space Reserved for item/promo related messaging</p></div>
-                                            <div class="if-left"><span class="if-status">In Stock</span></div>
-                                            <div class="if-right"> <span class="blue-link">Subscription Options</span> | <span class="blue-link">Add to Wishlist</span></div>
-                                        </div>
-                                    </li>
-                                )
-                            })
-                        }
-
-
-
-                    </ul>
-                </div>
-                <div class="sub-table cf">
-                    <div class="summary-block">
-                        <div class="sb-promo">
-                            <input type="text" placeholder="Enter Promo Code" />
-                            <span class="btn1">Apply</span>
-                        </div>
-                        <ul>
-                            <li class="subtotal"><span class="sb-label">Subtotal</span><span class="sb-value">$25.99</span></li>
-                            <li class="shipping"><span class="sb-label">Shipping</span><span class="sb-value">n/a</span></li>
-                            <li class="tax"><span class="sb-label">Est. Tax | <span class="tax-edit">edit <i class="i-notch-down"></i></span></span><span class="sb-value">$5.00</span></li>
-                            <li class="tax-calculate"><input type="text" value="06484" class="tax" /><span class="btn1">Calculate</span></li>
-                            <li class="grand-total"><span class="sb-label">Total</span><span class="sb-value">${cartTotal}</span></li>
-                        </ul>
-                    </div>
-                    <div class="copy-block">
-                        <p>Items will be saved in your cart for 30 days. To save items longer, add them to your <a href="#">Wish List</a>.</p>
-                        <p class="customer-care">
-                            Call us M-F 8:00 am to 6:00 pm EST<br />
-                            (877)-555-5555 or <a href="#">contact us</a>. <br />
-                        </p>
-                    </div>
-                </div>
-
-                <div class="cart-footer cf">
-                    <span class="btn1">Checkout</span>
-                    <span class="cont-shopping"><i class="i-angle-left"></i>Continue Shopping</span>
-                </div>
-            </div>
+  return (
+    <div style={{width:"100%", height:"100vh"}} >
+      <div className="card-header bg-dark p-3">
+        <div className="card-header-flex">
+          <h5 className="text-white m-0">
+            Cart Calculation {items.length > 0 ? `(${items.length})` : ""}
+          </h5>
+          {items.length > 0 ? (
+            <button
+              className="btn btn-danger mt-0 btn-sm"
+              //   onClick={() => emptycart()}
+            >
+              <i className="fa fa-trash-alt mr-2"></i>
+              <span>Empty Cart</span>
+            </button>
+          ) : (
+            ""
+          )}
         </div>
-    )
-}
+      </div>
+      <div className="card-body p-0">
+        {items.length === 0 ? (
+          <table className="table cart-table mb-0">
+            <tbody>
+              <tr>
+                <td colSpan="6">
+                  <div className="cart-empty">
+                    <i className="fa fa-shopping-cart"></i>
+                    <p>Your Cart Is empty</p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        ) : (
+          <table className="table cart-table mb-0">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th className="text-right">
+                  <span id="amount" className="amount">
+                    Total Amount
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((data, index) => {
+                return (
+                  <tr key={index}>
+                    <td>
+                      <button
+                        className="prdct-delete"
+                        onClick={() => removeItem(data.id)}
+                      >
+                        <i className="fa fa-trash-alt"></i>
+                      </button>
+                    </td>
+                    <td>
+                      <div className="product-img">
+                        <img src={data.images} alt="" />
+                      </div>
+                    </td>
+                    <td>
+                      <div className="product-name">
+                        <p>{data.title}</p>
+                      </div>
+                    </td>
+                    <td>${data.price}</td>
+                    <td>
+                      <div className="prdct-qty-container">
+                        <button
+                          className="prdct-qty-btn"
+                          type="button"
+                          //   onClick={() => decreaseQuantity(index)}
+                        >
+                          <i className="fa fa-minus"></i>
+                        </button>
+                        <input
+                          type="text"
+                          name="qty"
+                          className="qty-input-box"
+                          value={data.quantity}
+                          disabled
+                        />
+                        <button
+                          className="prdct-qty-btn"
+                          type="button"
+                          //   onClick={() => increaseQuantity(index)}
+                        >
+                          <i className="fa fa-plus"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td className="text-right">${data.price}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>&nbsp;</th>
+                <th colSpan="3">&nbsp;</th>
+                <th>
+                  Items in Cart<span className="ml-2 mr-2">:</span>
+                  <span className="text-danger">5445</span>
+                </th>
+                <th className="text-right">
+                  Total Price<span className="ml-2 mr-2">:</span>
+                  <span className="text-danger">$ 1121</span>
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default Cartng
+export default Cartng;

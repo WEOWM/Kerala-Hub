@@ -1,55 +1,102 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { FecthSingleProducts } from '../../Store/Slice/Shop/SingleProdutsSlice'
+import { useCart } from 'react-use-cart'
+import AddtToCartSlice, { FetchAddToCart } from '../../Store/Slice/Products/AddtToCartSlice'
+import { notifySuccess } from '../../utils/tost'
 
 const Popup = () => {
-
-    // const dispatch = useDispatch()
-    // const { id } = useParams()
-
-    // useEffect(() => {
-    //     dispatch(FecthSingleProducts({ SingleProdutsID: id }))
-    // }, [])
-
+    const { addItem } = useCart();
     const { singleproduts } = useSelector((state) => state.singleSlice)
+
+    const AddtToCart = () =>{
+        addItem(singleproduts)
+        notifySuccess("Product Added Your Cart")
+    }
+    
+
+    console.log("cartDdata.....", singleproduts);
     return (
-        <div>
 
-            {/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch demo modal
-            </button> */}
+        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className='modal-dialog modal-dialog-centered modal-lg' id="exampleModal" >
 
 
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className='modal-dialog modal-dialog-centered'>
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="container-xl rounded-5 overflow-hidden modal-content" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}>
+
+                    <div class="row  mt-5 mb-5 rounded-3 justify-content-center">
+                        <div class="col-12 col-sm-12 col-md-9 col-lg-7 col-xl-6 d-none d-xl-block p-0 bg-white">
+                            <img class="img-fluid h-100" src={singleproduts.images} alt="" />
                         </div>
-                        <div class="modal-body">
-                            <div style={{ display: "flex", alignItems: "center" }}>
-                                <div className='im'>
-                                    <img className='w-100' src={singleproduts.images} alt="" />
+                        <div class="col-12 col-sm-11 col-md-8 col-lg-7 col-xl-6 d-xl-none p-0 bg-white">
+                            <img class="img-fluid h-100" src={singleproduts.images} alt="" />
+                        </div>
+
+
+                        <div class="col-12 col-sm-11 col-md-8 col-lg-7 col-xl-6   bg-white holder ">
+                            <div class="row  w-auto mt-2 gy-5 cat-hold">
+                                <p class=" col-12 " style={{ fontWeight: "bold", fontSize: '2em', color: 'hsl(228, 12%, 48%)' }}>{singleproduts.title}</p>
+                            </div>
+
+                            <div class="row gy-5">
+                                <div class="col-12">
+                                    <p class="p-desc" style={{ fontSize: "1em" }}>{singleproduts.description}</p>
                                 </div>
-                                <div className='im me-5 ms-5' >
-                                    <p>{singleproduts.title}</p>
-                                    <h4>{singleproduts.price}</h4>
-                                    <a href='/cart' class="btn btn-outline-dark " >Go to Cart</a>
+
+                            </div>
+                            <div class="row gy-5">
+                                <div className="prdct-qty-container">
+                                    <button
+                                        className="prdct-qty-btn"
+                                        type="button"
+                                    //   onClick={() => decreaseQuantity(index)}
+                                    >
+                                        <i className="fa fa-minus"></i>
+                                    </button>
+                                    <input
+                                        type="text"
+                                        name="qty"
+                                        className="qty-input-box"
+                                        value="0"
+                                        disabled
+                                    />
+                                    <button
+                                        className="prdct-qty-btn"
+                                        type="button"
+                                    //   onClick={() => increaseQuantity(index)}
+                                    >
+                                        <i className="fa fa-plus"></i>
+                                    </button>
+                                    <p class=" ms-5" style={{ color: '#3E7E66' }} >Price : ₹{singleproduts.price}</p>
+                                </div>
+                                {/* <div class=" col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-7">
+                                    
+                                </div> */}
+
+                            </div>
+                            <div class="row pt-3" >
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                    <button type="button" onClick={() => AddtToCart()} class="btn btn-outline-dark  rounded-3 col-12 h-75">
+                                        <p class="cart-button">
+                                            <i class="fa-solid fa-cart-shopping me-3" ></i> Add to Cart</p>
+                                    </button>
 
                                 </div>
+                                
+
                             </div>
                         </div>
-                        <div class="modal-footer" style={{ display: "flex", justifyItems: "center", alignItems: "center" }}>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Remove</button>
-                            <button type="button" class="btn btn-success">Add</button>
-                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
+
+
+
     )
 }
-
 export default Popup
+
+
+

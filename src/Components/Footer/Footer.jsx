@@ -24,7 +24,7 @@ const Footer = () => {
     },
     {
       head: "Contact",
-      item1: <i className='fa-solid fa-phone ' >+652147892</i>,
+      item1: <i className='fa-solid fa-phone' >+652147892</i>,
       item2: <i className='fa-solid fa-message'>into@shophup.com</i>,
      
 
