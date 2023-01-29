@@ -26,7 +26,7 @@ const Cartng = () => {
   console.log("swfeewsfewef:::::::::::::::", total);
 
   return (
-    <div style={{width:"100%", height:"100vh"}} >
+    <div style={{ width: "100%", height: "100vh" }}>
       <div className="card-header bg-dark p-3">
         <div className="card-header-flex">
           <h5 className="text-white m-0">

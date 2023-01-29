@@ -8,7 +8,7 @@ const Head = () => {
         <>
             <div className="head">
                 <div className="logo ms-4">
-                    <h2>Kerala Hub</h2>
+                    <h2>Kerala</h2>
                 </div>
                 <div className="nav-bar me-4">
                     <li>
