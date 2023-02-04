@@ -12,6 +12,7 @@ const Cartng = () => {
     items,
     updateItemQuantity,
     cartTotal,
+    emptycart,
     removeItem,
   } = useCart();
 
@@ -35,7 +36,7 @@ const Cartng = () => {
           {items.length > 0 ? (
             <button
               className="btn btn-danger mt-0 btn-sm"
-              //   onClick={() => emptycart()}
+                onClick={() => emptycart()}
             >
               <i className="fa fa-trash-alt mr-2"></i>
               <span>Empty Cart</span>

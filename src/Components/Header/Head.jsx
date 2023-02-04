@@ -1,14 +1,17 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useCart } from 'react-use-cart';
 import "./Head.css"
 
 const Head = () => {
+
+    const {items}= useCart();
 
     return (
         <>
             <div className="head">
                 <div className="logo ms-4">
-                    <h2>Kerala</h2>
+                    <h2>Kerala Hub</h2>
                 </div>
                 <div className="nav-bar me-4">
                     <li>
@@ -29,7 +32,7 @@ const Head = () => {
                     <NavLink to="/cart">
 
                         <i class="fa-solid fa-cart-shopping"  ></i>
-                        <span className='cr' > 0</span>
+                        <span className='cr'>{items.length > 0 ? `${items.length}` : ""}</span>
                     </NavLink>
 
 

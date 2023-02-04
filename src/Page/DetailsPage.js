@@ -2,14 +2,17 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { feachShopDetails } from '../Store/Slice/Shop/CategoriesDeatailsSlice'
-import './Single.css'
+import { FecthSingleProducts } from '../Store/Slice/Shop/SingleProdutsSlice'
+
 
 const DetailsPage = () => {
 
+    const dispatch = useDispatch()
+
     const handleDetails = (e, id) => {
         e.preventDefault();
-        navigate(`/singe/${id}`)
-        console.log("detailsId:", id);
+        dispatch(FecthSingleProducts({SingleProdutsID : id}))
+ 
 
 
     }
@@ -40,7 +43,7 @@ const DetailsPage = () => {
                                     <div class="card-body">
                                         <h5 class="card-title">{data.title.substring(0, 20)}</h5>
                                         <p> {data.price}</p>
-                                        <a class="btn btn-outline-dark " onClick={(e) => handleDetails(e, data.id)}>Buy Now</a>
+                                        <a class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={(e) => handleDetails(e, data.id)}>Buy pNow</a>
                                     </div>
                                 </div>
                             )

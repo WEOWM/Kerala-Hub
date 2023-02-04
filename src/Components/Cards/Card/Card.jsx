@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useCart } from 'react-use-cart'
-import { FetchAddToCart } from '../../../Store/Slice/Products/AddtToCartSlice'
 import { FeacthDetailsRandom } from '../../../Store/Slice/Shop/RondamDetailSlice'
 import { FecthSingleProducts } from '../../../Store/Slice/Shop/SingleProdutsSlice'
 import "./Card.css"
@@ -56,7 +54,7 @@ const Card = () => {
                                     <img className='mt-4  ' src={data.images} alt="..." height="200px" style={{ cursor: "pointer" }} onClick={(e) => singproduts(e, data.id)} />
                                     <div class="card-body">
                                         <h5 class="card-title">{data.title.substring(0, 20)}</h5>
-                                        <p> ${data.price}</p>
+                                        <p> $yy{data.price}</p>
                                         <a class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => BuyNow(data.id)}>Add To Cart</a>
                                     </div>
                                 </div>

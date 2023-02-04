@@ -8,7 +8,6 @@
     display: flex;
     flex-direction: row;
     background-color:#a99985 ;
-    position: fixed;
     z-index: 1000;
     
 }

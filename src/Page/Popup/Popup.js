@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import React from 'react'
+import {  useSelector } from 'react-redux'
+
 import { useCart } from 'react-use-cart'
-import AddtToCartSlice, { FetchAddToCart } from '../../Store/Slice/Products/AddtToCartSlice'
+
 import { notifySuccess } from '../../utils/tost'
 
 const Popup = () => {
@@ -18,7 +18,7 @@ const Popup = () => {
     console.log("cartDdata.....", singleproduts);
     return (
 
-        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div className='modal-dialog modal-dialog-centered modal-lg' id="exampleModal" >
 
 
