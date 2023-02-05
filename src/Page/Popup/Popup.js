@@ -45,7 +45,7 @@ const Popup = () => {
 
                             </div>
                             <div class="row gy-5">
-                                <div className="prdct-qty-container">
+                                {/* <div className="prdct-qty-container">
                                     <button
                                         className="prdct-qty-btn"
                                         type="button"
@@ -68,13 +68,13 @@ const Popup = () => {
                                         <i className="fa fa-plus"></i>
                                     </button>
                                     <p class=" ms-5" style={{ color: '#3E7E66' }} >Price : ₹{singleproduts.price}</p>
-                                </div>
+                                </div> */}
                                 {/* <div class=" col-sm-8 col-md-8 col-lg-8 col-xl-8 col-xxl-7">
                                     
                                 </div> */}
 
                             </div>
-                            <div class="row pt-3" >
+                            <div class="row pt-3 mt-5" >
                                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                     <button type="button" onClick={() => AddtToCart()} class="btn btn-outline-dark  rounded-3 col-12 h-75">
                                         <p class="cart-button">

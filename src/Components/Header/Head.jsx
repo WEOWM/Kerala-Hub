@@ -18,24 +18,19 @@ const Head = () => {
                         <NavLink to={"/"}>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink>Clothes</NavLink>
+                        <NavLink>Abouts</NavLink>
                     </li>
                     <li>
-                        <NavLink>Electronics</NavLink>
+                        <NavLink>Help</NavLink>
                     </li>
                     <li>
-                        <NavLink>Furniture</NavLink>
-                    </li>
-                    <li>
-                        <NavLink>Shoes</NavLink>
+                        <NavLink>Offer</NavLink>
                     </li>
                     <NavLink to="/cart">
 
                         <i class="fa-solid fa-cart-shopping"  ></i>
                         <span className='cr'>{items.length > 0 ? `${items.length}` : ""}</span>
                     </NavLink>
-
-
                 </div>
             </div><div className="mobile-screen">
                 <div className="logo">
@@ -46,7 +41,7 @@ const Head = () => {
                     <i class="fa-solid fa-shirt"></i>
                     <i class="fa-solid fa-shoe-prints"></i>
                     <i class="fa-regular fa-clock"></i>
-                    <i class="fa-solid fa-cart-shopping"></i>
+                    <NavLink to={"/cart"}><i class="fa-solid fa-cart-shopping"></i></NavLink>
                 </div>
             </div>
 

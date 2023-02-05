@@ -11,8 +11,8 @@ const DetailsPage = () => {
 
     const handleDetails = (e, id) => {
         e.preventDefault();
-        dispatch(FecthSingleProducts({SingleProdutsID : id}))
- 
+        dispatch(FecthSingleProducts({ SingleProdutsID: id }))
+
 
 
     }
@@ -33,17 +33,20 @@ const DetailsPage = () => {
     console.log("data::::", ShopDetails);
     return (
         <div>
-            <div className="container-fluid   ">
-                <div className="row">
+           
+
+            <div className="container-fulid ">
+                <div className="row p-0 m-0">
                     {
-                        ShopDetails.map((data) => {
+                        ShopDetails.map((data, index) => {
                             return (
-                                <div class="col-lg-3 card ca-rd mt-4  text-center commone-class"  >
-                                    <img className='mt-4  ' src={data.images} alt="..." height="200px" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">{data.title.substring(0, 20)}</h5>
-                                        <p> {data.price}</p>
-                                        <a class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={(e) => handleDetails(e, data.id)}>Buy pNow</a>
+                                <div className="card-d col-md-3 mb-4 pb-1" key={data.id}>
+                                    <div className="card h-100 text-center p-4">
+                                        <img src={data.images} className="card-img-top w-100" alt="" height='180px' />
+                                        <div className="card-body ">
+                                            <h5 className="card-title ">{data.description.substring(0, 12)}..</h5>
+                                            <p className="card-text lead fw-bold"> ₹ {data.price}</p>
+                                            <a class="btn btn-outline-dark " data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={(e) => handleDetails(e, data.id)}>Buy Now</a>                                        </div>
                                     </div>
                                 </div>
                             )

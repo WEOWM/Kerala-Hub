@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./CartingPage.css";
-import { useSelector, useDispatch } from "react-redux";
 import { useCart } from "react-use-cart";
 
 const Cartng = () => {
@@ -33,7 +32,7 @@ const Cartng = () => {
           <h5 className="text-white m-0">
             Cart Calculation {items.length > 0 ? `(${items.length})` : ""}
           </h5>
-          {items.length > 0 ? (
+          {/* {items.length > 0 ? (
             <button
               className="btn btn-danger mt-0 btn-sm"
                 onClick={() => emptycart()}
@@ -43,7 +42,7 @@ const Cartng = () => {
             </button>
           ) : (
             ""
-          )}
+          )} */}
         </div>
       </div>
       <div className="card-body p-0">
@@ -98,13 +97,13 @@ const Cartng = () => {
                         <p>{data.title}</p>
                       </div>
                     </td>
-                    <td>${data.price}</td>
+                    <td>₹{data.price}</td>
                     <td>
                       <div className="prdct-qty-container">
                         <button
                           className="prdct-qty-btn"
                           type="button"
-                          //   onClick={() => decreaseQuantity(index)}
+                            onClick={() => updateItemQuantity(data.id, data.quantity - 1)}
                         >
                           <i className="fa fa-minus"></i>
                         </button>
@@ -118,13 +117,13 @@ const Cartng = () => {
                         <button
                           className="prdct-qty-btn"
                           type="button"
-                          //   onClick={() => increaseQuantity(index)}
+                            onClick={() => updateItemQuantity(data.id, data.quantity + 1)}
                         >
                           <i className="fa fa-plus"></i>
                         </button>
                       </div>
                     </td>
-                    <td className="text-right">${data.price}</td>
+                    <td className="text-right">₹{data.price}</td>
                   </tr>
                 );
               })}
@@ -135,11 +134,11 @@ const Cartng = () => {
                 <th colSpan="3">&nbsp;</th>
                 <th>
                   Items in Cart<span className="ml-2 mr-2">:</span>
-                  <span className="text-danger">5445</span>
+                  <span className="text-danger">{items.length > 0 ? `${items.length}` : ""}</span>
                 </th>
                 <th className="text-right">
                   Total Price<span className="ml-2 mr-2">:</span>
-                  <span className="text-danger">$ 1121</span>
+                  <span className="text-danger">₹{cartTotal}</span>
                 </th>
               </tr>
             </tfoot>
