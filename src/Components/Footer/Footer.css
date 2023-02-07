@@ -1,15 +1,18 @@
 
-
 .footer{
     width: 100%;
-    height: fit-content;
+    height: auto;
     background-color: #a99985;
+    padding: 5rem;
+    list-style: none;
+    padding-left: 8rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
-     font-family: 'Kanit', sans-serif;
-    
-}
-.footer li{
     font-family: 'Kanit', sans-serif;
-    list-style: none;
+}
+
+.fd li {
+    letter-spacing: .1rem;
+    initial-letter-align: auto;
 }

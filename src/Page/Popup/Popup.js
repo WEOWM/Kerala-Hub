@@ -18,7 +18,7 @@ const Popup = () => {
     console.log("cartDdata.....", singleproduts);
     return (
 
-        <div class="modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal p-0" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
             <div className='modal-dialog modal-dialog-centered modal-lg' id="exampleModal" >
 
 
