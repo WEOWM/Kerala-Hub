@@ -12,6 +12,7 @@ const Cartng = () => {
     updateItemQuantity,
     cartTotal,
     emptycart,
+    quantity,
     removeItem,
   } = useCart();
 
@@ -123,7 +124,7 @@ const Cartng = () => {
                         </button>
                       </div>
                     </td>
-                    <td className="text-right">₹{data.price}</td>
+                    <td className="text-right">₹ {data.price*data.quantity}</td>
                   </tr>
                 );
               })}
